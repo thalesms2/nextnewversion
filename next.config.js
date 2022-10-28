@@ -8,6 +8,9 @@ const nextConfig = {
       exclude: ['error'],
     },
   },
+  experimental: {
+    appDir: true,
+  },
 }
 
 module.exports = nextConfig

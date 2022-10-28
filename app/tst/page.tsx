@@ -1,13 +1,13 @@
 import React from 'react'
 import type { NextPage } from 'next'
 
-const Home: NextPage = () => {
+const Tst: NextPage = () => {
     
     return (
         <div>
-            Hello World
+            LUL
         </div>
     )
 }
 
-export default Home
+export default Tst  

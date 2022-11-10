@@ -1,12 +1,26 @@
 import React from "react";
-import type { NextPage } from "next";
 import styles from "styles/Home.module.css";
-import Form from "./form";
+import ProductForm from "@/components/ProductForm";
+import prisma from "@/lib/prisma";
 
-const Home: NextPage = () => {
+async function getProducts() {
+    return await prisma.product.findMany({
+        orderBy: {
+            updatedAt: "desc"
+        }
+    })
+}
+
+const Home = async () => {
+    const products = await getProducts()
     return (
         <div className={styles.content}>
-            <Form  />
+            <ProductForm  />
+            {products.map((product) => {
+                return (
+                    <div key={product.id}>{`${product.id} | ${product.name} $${product.price} - ${product.updatedAt}`}</div>
+                )
+            })}
         </div>
     );
 };

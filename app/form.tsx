@@ -4,9 +4,10 @@ import React from 'react'
 import type { NextPage } from 'next'
 
 async function createAnime(title: string) {
+    const data = { title: title }
     await fetch("/api/anime", {
         method: "POST",
-        body: JSON.stringify(title),
+        body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json",
         },
@@ -27,7 +28,9 @@ const Form: NextPage = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
-                <span>{title}</span>
+                <br />
+                <span>{JSON.stringify(title)}</span>
+                <br />
                 <button onSubmit={(e) => handleSubmit(e)}>test</button>
         </div>
     )

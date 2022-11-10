@@ -10,11 +10,31 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  id        String   @id @default(cuid())
-  name      String?
-  email     String?  @unique
+// model User {
+//   id        String   @id @default(uuid())
+//   name      String?
+//   email     String?  @unique
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+//   @@map(name: "users")
+// }
+
+// model Product {
+//   id        String   @id @default(uuid())
+//   name      String?
+//   price     Decimal
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   updatedAt DateTime @updatedAt @map(name: "updated_at")
+  
+//   @@map(name: "product")
+// }
+
+model Anime {
+  id String @id @default(uuid())
+  title String?
   createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
-  @@map(name: "users")
+  updateAt DateTime @updatedAt @map(name: "updated_at")
+
+  @@map(name: "anime")
 }
